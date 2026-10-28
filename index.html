@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>På morgonen</title>
+<meta name="description" content="En stad om dagen. Tio ledtrådar, från svårast till lättast. Hur tidigt gissar du?">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<style>
+/* Layout: one narrow column; the five point levels drawn as stops on a rail line, the sign-up as the last stop. */
+:root {
+  --bg: #f1ede4;          /* early-morning paper */
+  --paper: #fbf9f4;
+  --ink: #1d2430;
+  --muted: #5d6573;
+  --rule: #d9d2c3;
+  --rail: #8e97a4;
+  --sun: #c76a1e;         /* sunrise orange */
+  --sun-soft: #f6e2cd;
+  --display: "Barlow Condensed", "Arial Narrow", "Helvetica Neue", Arial, sans-serif;
+  --body: "Source Serif 4", Georgia, "Times New Roman", serif;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --bg: #14171c; --paper: #1c2027; --ink: #e8e4dc; --muted: #a2a8b3; --rule: #313741;
+          --rail: #626b78; --sun: #ec9450; --sun-soft: #3a2817; color-scheme: dark; }
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body {
+  background: var(--bg); color: var(--ink); font: 18px/1.55 var(--body);
+  padding-left: max(18px, env(safe-area-inset-left, 0px)); padding-right: max(18px, env(safe-area-inset-right, 0px));
+  padding-block: max(36px, env(safe-area-inset-top, 0px)) max(48px, env(safe-area-inset-bottom, 0px));
+}
+main { max-width: 560px; margin: 0 auto; display: grid; gap: 34px; }
+.sun { width: 54px; height: 27px; border-radius: 54px 54px 0 0; background: var(--sun); margin-bottom: 14px; }
+h1 { font: 700 clamp(46px, 13vw, 72px)/0.95 var(--display); margin: 0; letter-spacing: .005em; text-wrap: balance; }
+.lede { font-size: 21px; margin: 14px 0 0; text-wrap: balance; }
+h2 { font: 600 14px/1 var(--display); letter-spacing: .16em; text-transform: uppercase; color: var(--muted); margin: 0 0 14px; }
+
+.track { list-style: none; margin: 0; padding: 0; position: relative; display: grid; gap: 12px; }
+.track::before { content: ""; position: absolute; left: 21px; top: 10px; bottom: 10px; width: 3px; background: var(--rail); border-radius: 2px; }
+.track li { display: grid; grid-template-columns: 46px minmax(0, 1fr); gap: 14px; align-items: center; position: relative; }
+.pts { width: 46px; height: 46px; border-radius: 50%; display: grid; place-items: center; background: var(--paper);
+       border: 3px solid var(--rail); font: 700 20px/1 var(--display); position: relative; z-index: 1; }
+.track li:first-child .pts { border-color: var(--sun); }
+.track p { margin: 0; }
+.track small { color: var(--muted); font-size: 16px; }
+.after { margin: 16px 0 0; color: var(--muted); font-size: 17px; }
+
+.join { background: var(--paper); border: 1px solid var(--rule); border-radius: 10px; padding: 24px 22px; display: grid; gap: 16px; }
+.join p { margin: 0; }
+.addr { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+.addr code { font: 600 19px/1.3 var(--body); background: var(--sun-soft); padding: 6px 10px; border-radius: 6px; word-break: break-all; }
+.btns { display: flex; flex-wrap: wrap; gap: 10px; }
+.btn { font: 600 17px/1 var(--display); letter-spacing: .08em; text-transform: uppercase; text-decoration: none; cursor: pointer;
+       border-radius: 999px; padding: 14px 20px; border: 2px solid var(--ink); }
+.btn.primary { background: var(--ink); color: var(--paper); }
+.btn.ghost { background: transparent; color: var(--ink); }
+.btn:focus-visible { outline: 3px solid var(--sun); outline-offset: 3px; }
+.note { font-size: 16px; color: var(--muted); }
+footer { font-size: 15px; color: var(--muted); border-top: 1px solid var(--rule); padding-top: 16px; }
+@media (prefers-reduced-motion: no-preference) { .btn { transition: transform .12s; } .btn:active { transform: scale(.97); } }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <div class="sun" aria-hidden="true"></div>
+    <h1>På morgonen</h1>
+    <p class="lede">En stad om dagen, i din inkorg klockan sju. Tio ledtrådar, från svårast till lättast. Hur tidigt gissar du?</p>
+  </header>
+
+  <section aria-labelledby="how">
+    <h2 id="how">Så funkar det</h2>
+    <ol class="track">
+      <li><span class="pts">10</span><p>Två kluriga ledtrådar för experter. <small>Gissar du rätt här är du bäst.</small></p></li>
+      <li><span class="pts">8</span><p>Historia och geografi ringar in området.</p></li>
+      <li><span class="pts">6</span><p>Kända personer, företag och evenemang.</p></li>
+      <li><span class="pts">4</span><p>Mat och landmärken. Nu har de flesta det.</p></li>
+      <li><span class="pts">2</span><p>Landet avslöjas. Sista chansen!</p></li>
+    </ol>
+    <p class="after">Längre ner i mejlet kommer svaret med fakta om staden: mat, festivaler, kända personer, och hur man beställer en stor öl på det lokala språket.</p>
+  </section>
+
+  <section class="join" aria-labelledby="join">
+    <h2 id="join">Prenumerera</h2>
+    <p>Skicka ett mejl till</p>
+    <div class="addr"><code id="address">pomorgonen@gmail.com</code></div>
+    <p>och skriv <strong>det hemliga ordet</strong> i mejlet. Ordet får du av vännen som tipsade dig om På morgonen.</p>
+    <div class="btns">
+      <a class="btn primary" id="write" href="mailto:pomorgonen@gmail.com?subject=Prenumerera&amp;body=Det%20hemliga%20ordet%3A%20">Skriv mejlet</a>
+      <button class="btn ghost" id="copy" type="button">Kopiera adressen</button>
+    </div>
+    <p class="note" id="copied" role="status" aria-live="polite"></p>
+    <p class="note">Du får ett välkomstmejl inom ett dygn. Vill du sluta senare, svara på valfritt nummer med ordet <em>avsluta</em>.</p>
+  </section>
+
+  <footer>Ett litet nyhetsbrev för vänner och vänners vänner. Din adress används bara för att skicka På morgonen.</footer>
+</main>
+<script>
+document.getElementById("copy").addEventListener("click", async () => {
+  const status = document.getElementById("copied");
+  const text = document.getElementById("address").textContent;
+  try {
+    await navigator.clipboard.writeText(text);
+    status.textContent = "Adressen är kopierad.";
+  } catch (e) {
+    const range = document.createRange();
+    range.selectNodeContents(document.getElementById("address"));
+    const sel = window.getSelection(); sel.removeAllRanges(); sel.addRange(range);
+    status.textContent = "Adressen är markerad. Kopiera den med Ctrl+C eller ⌘C.";
+  }
+});
+</script>
+</body>
+</html>
